@@ -21,16 +21,16 @@ import 'parser/symbol.dart';
 
 void main() {
   // Define the grammar rules
-  const grammarRules = [
-    GrammarRule(CfgSymbol('S'), [CfgSymbol('NP'), CfgSymbol('VP')]),
-    GrammarRule(CfgSymbol('NP'), [CfgSymbol('N')]),
-    GrammarRule(CfgSymbol('VP'), [CfgSymbol('V'), CfgSymbol('N')]),
-    GrammarRule(CfgSymbol('N'), [CfgSymbol('i', isTerminal: true)]),
-    GrammarRule(CfgSymbol('N'), [CfgSymbol('dogs', isTerminal: true)]),
-    GrammarRule(CfgSymbol('N'), [CfgSymbol('cats', isTerminal: true)]),
-    GrammarRule(CfgSymbol('V'), [CfgSymbol('like', isTerminal: true)]),
-    GrammarRule(CfgSymbol('V'), [CfgSymbol('see', isTerminal: true)]),
-  ];
+  // const grammarRules = [
+  //   GrammarRule(CfgSymbol('S'), [CfgSymbol('NP'), CfgSymbol('VP')]),
+  //   GrammarRule(CfgSymbol('NP'), [CfgSymbol('N')]),
+  //   GrammarRule(CfgSymbol('VP'), [CfgSymbol('V'), CfgSymbol('N')]),
+  //   GrammarRule(CfgSymbol('N'), [CfgSymbol('i', isTerminal: true)]),
+  //   GrammarRule(CfgSymbol('N'), [CfgSymbol('dogs', isTerminal: true)]),
+  //   GrammarRule(CfgSymbol('N'), [CfgSymbol('cats', isTerminal: true)]),
+  //   GrammarRule(CfgSymbol('V'), [CfgSymbol('like', isTerminal: true)]),
+  //   GrammarRule(CfgSymbol('V'), [CfgSymbol('see', isTerminal: true)]),
+  // ];
 
   // Create PDA parser
   final parser = PDAParser(
@@ -39,7 +39,7 @@ void main() {
   );
 
   // Input sentence
-  final sentence = ['i', 'see', 'people'];
+  final sentence = ['тэр', 'ирсэн'];
   // final sentence = ['i', 'like', 'dogs'];
 
   // Parse the sentence

@@ -18,6 +18,7 @@ class PDAParser {
   }
 
   bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex) {
+    print('Stack: $stack');
     if (stack.isEmpty) {
       // Successfully parsed if all input tokens are consumed
       return inputIndex == inputTokens.length;
