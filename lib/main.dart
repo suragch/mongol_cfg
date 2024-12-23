@@ -39,8 +39,39 @@ void main() {
   );
 
   // Input sentence
-  final sentence = ['тэр', 'ирсэн'];
-  // final sentence = ['i', 'like', 'dogs'];
+  // final sentence = ['тэр', 'ирсэн'];
+  // final sentence = ['түүний', 'ээж', 'ирсэн'];
+  // final sentence = ['би', 'ирсэн'];
+  // final sentence = ['бат', 'явж байна'];
+  // final sentence = ['ээж', 'ирнэ'];
+
+  // final sentence = ['түүний', 'ээж', 'ирсэн'];
+  // final sentence = ['миний', 'аав', 'явж байна'];
+  // final sentence = ['батын', 'морь', 'явна'];
+
+  // final sentence = ['би', 'улаанбаатарт', 'ирсэн'];
+  // final sentence = ['тэр', 'гэрт', 'явж байна'];
+  // final sentence = ['бат', 'ээжид', 'ирнэ'];
+
+  // final sentence = ['би', 'энэ', 'номыг', 'авсан'];
+  // final sentence = ['тэр', 'тэр', 'мөнгийг', 'авж байна'];
+  // final sentence = ['ээж', 'энэ', 'морийг', 'авна'];
+
+  // final sentence = ['би', 'америкаас', 'ирсэн'];
+  // final sentence = ['бат', 'ээжээс', 'явж байна'];
+  // final sentence = ['ээж', 'мориноос', 'ирнэ'];
+
+  // final sentence = ['би', 'машинаар', 'ирсэн'];
+  // final sentence = ['бат', 'мориор', 'явж байна'];
+
+  // final sentence = ['би', 'түүнтэй', 'ирсэн'];
+  // final sentence = ['бат', 'надтай', 'явж байна'];
+  // final sentence = ['ээж', 'аавтай', 'ирнэ'];
+  // final sentence = ['тэр', 'морьтой', 'явна'];
+
+  // final sentence = ['би', 'америк руу', 'ирсэн'];
+  // final sentence = ['бат', 'гол руу', 'явж байна'];
+  final sentence = ['ээж', 'дэлгүүр лүү', 'ирнэ'];
 
   // Parse the sentence
   bool isValid = parser.parse(sentence);
