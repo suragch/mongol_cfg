@@ -16,8 +16,8 @@ String generateRandomSentence() {
     for (var symbol in sentence) {
       if (symbol.isNonTerminal) {
         hasNonTerminal = true;
-        var matchingRules = grammarRules.where((rule) => rule.symbol.name == symbol.name).toList();
-        var selectedRule = matchingRules[Random().nextInt(matchingRules.length)];
+        final matchingRules = grammarRules.where((rule) => rule.symbol == symbol).toList();
+        final selectedRule = matchingRules[Random().nextInt(matchingRules.length)];
         newSentence.addAll(selectedRule.expansion);
       } else {
         newSentence.add(symbol);
