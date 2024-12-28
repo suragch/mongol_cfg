@@ -1,25 +1,27 @@
 // import 'package:mongol_cfg/cases/sentence_types.dart';
 
+import 'package:mongol_cfg/parser/cfg_generator.dart';
+
 import 'parser/grammar.dart';
 import 'parser/pda_parser.dart';
 import 'parser/symbol.dart';
 
-// void main() {
-//   // final sentence = NominativeSentence();
-//   // final sentence = GenitiveSentence();
-//   // final sentence = DativeLocativeSentence();
-//   // final sentence = DativeLocativeSentence();
-//   // final sentence = AblativeSentence();
-//   // final sentence = InstrumentalSentence();
-//   // final sentence = ComitativeSentence();
-//   // final sentence = DirectiveSentence();
-//   for (int i = 0; i < 10; i++) {
-//     final sentence = Sentence.random();
-//     print(sentence.createExample());
-//   }
-// }
-
 void main() {
+  // final sentence = NominativeSentence();
+  // final sentence = GenitiveSentence();
+  // final sentence = DativeLocativeSentence();
+  // final sentence = DativeLocativeSentence();
+  // final sentence = AblativeSentence();
+  // final sentence = InstrumentalSentence();
+  // final sentence = ComitativeSentence();
+  // final sentence = DirectiveSentence();
+  final sentence = generateRandomSentence();
+  print(sentence);
+  // for (int i = 0; i < 10; i++) {
+  // }
+}
+
+void main2() {
   // Define the grammar rules
   // const grammarRules = [
   //   GrammarRule(CfgSymbol('S'), [CfgSymbol('NP'), CfgSymbol('VP')]),

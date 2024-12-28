@@ -3,6 +3,8 @@ class CfgSymbol {
   final String name;
   final bool isTerminal;
 
+  bool get isNonTerminal => !isTerminal;
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
