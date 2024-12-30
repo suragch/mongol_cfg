@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_cfg/parser/pda_parser.dart';
-import 'package:mongol_cfg/parser/symbol.dart';
-import '../parser/grammar.dart';
+import 'package:mongol_cfg/logic/pda_parser.dart';
+import 'package:mongol_cfg/logic/symbol.dart';
+import '../logic/grammar.dart';
 
 class PdaDemo extends StatefulWidget {
   const PdaDemo({super.key});
@@ -84,7 +84,7 @@ class _PdaDemoState extends State<PdaDemo> {
             const SizedBox(height: 20),
             Center(
               child: FilledButton(
-                onPressed: checkGrammar,
+                onPressed: _checkGrammar,
                 child: const Text('Check Grammar'),
               ),
             ),
@@ -119,7 +119,7 @@ class _PdaDemoState extends State<PdaDemo> {
     );
   }
 
-  void checkGrammar() {
+  void _checkGrammar() {
     final parser = PDAParser(
       grammarRules: grammarRules,
       startSymbol: const CfgSymbol('S'),

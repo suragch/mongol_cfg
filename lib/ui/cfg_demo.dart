@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_cfg/parser/cfg_generator.dart';
+import 'package:mongol_cfg/logic/cfg_generator.dart';
 
 class CfgDemo extends StatefulWidget {
   const CfgDemo({super.key});

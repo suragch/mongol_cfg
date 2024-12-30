@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:mongol_cfg/parser/grammar.dart';
+import 'package:mongol_cfg/logic/grammar.dart';
 
 import 'symbol.dart';
 

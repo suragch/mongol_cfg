@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:mongol_cfg/old/cfg_demo.dart';
-import 'package:mongol_cfg/old/home_page_manager.dart';
-import 'package:mongol_cfg/old/pda_demo.dart';
+import 'package:mongol_cfg/ui/cfg_demo.dart';
+import 'package:mongol_cfg/ui/pda_demo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,18 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final manager = HomePageManager();
   int selectedIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
