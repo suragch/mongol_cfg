@@ -7,18 +7,20 @@ class PDAParser {
 
   PDAParser({required this.grammarRules, required this.startSymbol});
 
-  bool parse(List<String> inputTokens) {
+  (bool isValid, String stackTrace) parse(List<String> inputTokens) {
     final tokens = inputTokens.map((t) => CfgSymbol(t, isTerminal: true)).toList();
 
     // Initialize the stack with the start symbol
     List<CfgSymbol> stack = [startSymbol];
+    final stackTrace = StringBuffer();
 
     // Start the recursive parsing
-    return _parseRecursive(stack, tokens, 0);
+    return (_parseRecursive(stack, tokens, 0, stackTrace), stackTrace.toString());
   }
 
-  bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex) {
-    print('Stack: $stack');
+  bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex, StringBuffer stackTrace) {
+    // print('Stack: $stack');
+    stackTrace.writeln(stack.toString());
     if (stack.isEmpty) {
       // Successfully parsed if all input tokens are consumed
       return inputIndex == inputTokens.length;
@@ -42,7 +44,7 @@ class PDAParser {
           newStack.add(symbol);
         }
 
-        if (_parseRecursive(newStack, inputTokens, inputIndex)) {
+        if (_parseRecursive(newStack, inputTokens, inputIndex, stackTrace)) {
           return true;
         }
       }
@@ -53,7 +55,7 @@ class PDAParser {
         return false; // Mismatch
       }
       // Move to the next input token
-      return _parseRecursive(stack, inputTokens, inputIndex + 1);
+      return _parseRecursive(stack, inputTokens, inputIndex + 1, stackTrace);
     }
   }
 }

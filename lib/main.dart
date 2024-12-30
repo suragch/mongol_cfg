@@ -1,5 +1,7 @@
 // import 'package:mongol_cfg/cases/sentence_types.dart';
 
+import 'package:flutter/material.dart';
+import 'package:mongol_cfg/old/home_page.dart';
 import 'package:mongol_cfg/parser/cfg_generator.dart';
 
 import 'parser/grammar.dart';
@@ -7,6 +9,22 @@ import 'parser/pda_parser.dart';
 import 'parser/symbol.dart';
 
 void main() {
+  runApp(const DemoApp());
+}
+
+class DemoApp extends StatelessWidget {
+  const DemoApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
+  }
+}
+
+void main3() {
   // final sentence = NominativeSentence();
   // final sentence = GenitiveSentence();
   // final sentence = DativeLocativeSentence();
@@ -76,11 +94,11 @@ void main2() {
   final sentence = ['ээж', 'дэлгүүр лүү', 'ирнэ'];
 
   // Parse the sentence
-  bool isValid = parser.parse(sentence);
+  // bool isValid = parser.parse(sentence);
 
-  if (isValid) {
-    print('The sentence "$sentence" is valid according to the grammar.');
-  } else {
-    print('The sentence "$sentence" is NOT valid according to the grammar.');
-  }
+  // if (isValid) {
+  //   print('The sentence "$sentence" is valid according to the grammar.');
+  // } else {
+  //   print('The sentence "$sentence" is NOT valid according to the grammar.');
+  // }
 }
