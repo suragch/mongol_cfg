@@ -4,10 +4,12 @@ import 'package:mongol_cfg/parser/grammar.dart';
 
 import 'symbol.dart';
 
-String generateRandomSentence() {
+(String sentence, String parseTree) generateRandomSentence() {
   var sentence = [const CfgSymbol('S')];
   var hasNonTerminal = true;
-  print(sentence);
+  // print(sentence);
+  final parseTree = StringBuffer();
+  // parseTree.writeln(sentence);
 
   while (hasNonTerminal) {
     hasNonTerminal = false;
@@ -23,10 +25,12 @@ String generateRandomSentence() {
         newSentence.add(symbol);
       }
     }
-    print(newSentence);
+    // print(newSentence);
+    parseTree.writeln(sentence);
 
     sentence = newSentence;
   }
 
-  return sentence.map((symbol) => symbol.name).join(' ');
+  final output = sentence.map((symbol) => symbol.name).join(' ');
+  return (output, parseTree.toString());
 }

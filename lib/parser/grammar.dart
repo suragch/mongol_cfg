@@ -115,7 +115,6 @@ const grammarRules = [
 
   // Directive Sentence
   GrammarRule(CfgSymbol('DirectiveSentence'), [CfgSymbol('NomNoun'), CfgSymbol('DirNoun'), CfgSymbol('Verb')]),
-
   GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('Place-руу')]),
   GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('RegularNoun-руу')]),
   GrammarRule(CfgSymbol('Place-руу'), [CfgSymbol('америк руу', isTerminal: true)]),

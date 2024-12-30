@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:mongol_cfg/old/cfg_demo.dart';
 import 'package:mongol_cfg/old/home_page_manager.dart';
 import 'package:mongol_cfg/old/pda_demo.dart';
 
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Expanded(
-              child: selectedIndex == 0 ? const Center(child: Text('CFG Layout')) : const PdaDemo(),
+              child: selectedIndex == 0 ? const CfgDemo() : const PdaDemo(),
             ),
           ],
         ),
