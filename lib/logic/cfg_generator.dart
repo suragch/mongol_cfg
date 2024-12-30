@@ -7,9 +7,7 @@ import 'symbol.dart';
 (String sentence, String parseTree) generateRandomSentence() {
   var sentence = [const CfgSymbol('S')];
   var hasNonTerminal = true;
-  // print(sentence);
   final parseTree = StringBuffer();
-  // parseTree.writeln(sentence);
 
   while (hasNonTerminal) {
     hasNonTerminal = false;
@@ -25,9 +23,7 @@ import 'symbol.dart';
         newSentence.add(symbol);
       }
     }
-    // print(newSentence);
     parseTree.writeln(sentence);
-
     sentence = newSentence;
   }
 

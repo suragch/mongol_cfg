@@ -15,11 +15,11 @@ class PDAParser {
     final stackTrace = StringBuffer();
 
     // Start the recursive parsing
-    return (_parseRecursive(stack, tokens, 0, stackTrace), stackTrace.toString());
+    final isValid = _parseRecursive(stack, tokens, 0, stackTrace);
+    return (isValid, stackTrace.toString());
   }
 
   bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex, StringBuffer stackTrace) {
-    // print('Stack: $stack');
     stackTrace.writeln(stack.toString());
     if (stack.isEmpty) {
       // Successfully parsed if all input tokens are consumed
