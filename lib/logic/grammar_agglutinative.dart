@@ -46,13 +46,6 @@ const grammarRules = [
   GrammarRule(CfgSymbol('GenNoun'), [CfgSymbol('Pronoun'), CfgSymbol('-ын', isTerminal: true)]),
   GrammarRule(CfgSymbol('GenNoun'), [CfgSymbol('Name'), CfgSymbol('-ын', isTerminal: true)]),
   GrammarRule(CfgSymbol('GenNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-ын', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Pronoun-ын'), [CfgSymbol('түүний', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Pronoun-ын'), [CfgSymbol('миний', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-ын'), [CfgSymbol('батын', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-ын'), [CfgSymbol('мишээлийн', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-ын'), [CfgSymbol('аавын', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-ын'), [CfgSymbol('ээжийн', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-ын'), [CfgSymbol('морины', isTerminal: true)]),
 
   // Dative Locative Sentence
   GrammarRule(CfgSymbol('DativeLocativeSentence'), [CfgSymbol('NomNoun'), CfgSymbol('DatNoun'), CfgSymbol('Verb')]),
@@ -60,8 +53,6 @@ const grammarRules = [
   GrammarRule(CfgSymbol('DatNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-т', isTerminal: true)]),
   GrammarRule(CfgSymbol('Place'), [CfgSymbol('улаанбаатар', isTerminal: true)]),
   GrammarRule(CfgSymbol('Place'), [CfgSymbol('монгол', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-т'), [CfgSymbol('гэрт', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-т'), [CfgSymbol('ээжид', isTerminal: true)]),
 
   // Accusative Sentence
   GrammarRule(CfgSymbol('AccusativeSentence'),
@@ -71,13 +62,6 @@ const grammarRules = [
   GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('Pronoun'), CfgSymbol('-ыг', isTerminal: true)]),
   GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('Name'), CfgSymbol('-ыг', isTerminal: true)]),
   GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-ыг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Pronoun-ыг'), [CfgSymbol('түүнийг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Pronoun-ыг'), [CfgSymbol('намайг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-ыг'), [CfgSymbol('батыг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-ыг'), [CfgSymbol('мишээлийг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-ыг'), [CfgSymbol('мөнгийг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-ыг'), [CfgSymbol('номыг', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-ыг'), [CfgSymbol('морийг', isTerminal: true)]),
   GrammarRule(CfgSymbol('TransVerb'), [CfgSymbol('TransPastVerb')]),
   GrammarRule(CfgSymbol('TransVerb'), [CfgSymbol('TransPresentVerb')]),
   GrammarRule(CfgSymbol('TransVerb'), [CfgSymbol('TransFutureVerb')]),
@@ -90,38 +74,22 @@ const grammarRules = [
   GrammarRule(CfgSymbol('AblNoun'), [CfgSymbol('Place'), CfgSymbol('-аас', isTerminal: true)]),
   GrammarRule(CfgSymbol('AblNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-аас', isTerminal: true)]),
   GrammarRule(CfgSymbol('Place'), [CfgSymbol('америк', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Place-аас'), [CfgSymbol('монголоос', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-аас'), [CfgSymbol('ааваас', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-аас'), [CfgSymbol('ээжээс', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-аас'), [CfgSymbol('мориноос', isTerminal: true)]),
 
   // Instrumental Sentence
   GrammarRule(CfgSymbol('InstrumentalSentence'), [CfgSymbol('NomNoun'), CfgSymbol('InsNoun'), CfgSymbol('Verb')]),
   GrammarRule(CfgSymbol('InsNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-аар', isTerminal: true)]),
   GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('машин', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-аар'), [CfgSymbol('мориор', isTerminal: true)]),
 
   // Comitative Sentence
   GrammarRule(CfgSymbol('ComitativeSentence'), [CfgSymbol('NomNoun'), CfgSymbol('ComNoun'), CfgSymbol('Verb')]),
   GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('Pronoun'), CfgSymbol('-тай', isTerminal: true)]),
   GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('Name'), CfgSymbol('-тай', isTerminal: true)]),
   GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-тай', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('Name-тай')]),
-  // GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('RegularNoun-тай')]),
-  // GrammarRule(CfgSymbol('Pronoun-тай'), [CfgSymbol('түүнтэй', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Pronoun-тай'), [CfgSymbol('надтай', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-тай'), [CfgSymbol('баттай', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-тай'), [CfgSymbol('мишээлтэй', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-тай'), [CfgSymbol('аавтай', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('RegularNoun-тай'), [CfgSymbol('морьтой', isTerminal: true)]),
 
   // Directive Sentence
   GrammarRule(CfgSymbol('DirectiveSentence'), [CfgSymbol('NomNoun'), CfgSymbol('DirNoun'), CfgSymbol('Verb')]),
   GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('Place'), CfgSymbol('-руу', isTerminal: true)]),
   GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-руу', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('RegularNoun-руу')]),
-  // GrammarRule(CfgSymbol('Place-руу'), [CfgSymbol('америк руу', isTerminal: true)]),
-  // GrammarRule(CfgSymbol('Name-руу'), [CfgSymbol('монгол руу', isTerminal: true)]),
   GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('гол', isTerminal: true)]),
   GrammarRule(CfgSymbol('RegularNoun-'), [CfgSymbol('дэлгүүр', isTerminal: true)]),
 ];
