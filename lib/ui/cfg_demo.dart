@@ -25,10 +25,7 @@ class _CfgDemoState extends State<CfgDemo> {
                 style: TextStyle(fontSize: 24),
               ),
             ),
-            const SizedBox(
-              height: 16,
-              width: double.infinity,
-            ),
+            const SizedBox(height: 16, width: double.infinity),
             FilledButton(
               onPressed: _generateNewSentence,
               child: const Text('Generate Sentence'),

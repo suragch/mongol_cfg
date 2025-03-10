@@ -13,13 +13,14 @@ class PdaDemo extends StatefulWidget {
 
 class _PdaDemoState extends State<PdaDemo> {
   final List<String> selectedWords = [];
-  final List<String> availableWords = grammarRules
-      .expand((rule) => rule.expansion)
-      .where((symbol) => symbol.isTerminal)
-      .map((symbol) => symbol.name)
-      .toSet()
-      .toList()
-    ..sort();
+  final List<String> availableWords =
+      grammarRules
+          .expand((rule) => rule.expansion)
+          .where((symbol) => symbol.isTerminal)
+          .map((symbol) => symbol.name)
+          .toSet()
+          .toList()
+        ..sort();
   String? stackTrace;
   bool? isValid;
 
@@ -50,18 +51,19 @@ class _PdaDemoState extends State<PdaDemo> {
                 alignment: WrapAlignment.start,
                 spacing: 8.0,
                 runSpacing: 8.0,
-                children: selectedWords
-                    .map(
-                      (word) => Chip(
-                        label: Text(word),
-                        onDeleted: () {
-                          setState(() {
-                            selectedWords.remove(word);
-                          });
-                        },
-                      ),
-                    )
-                    .toList(),
+                children:
+                    selectedWords
+                        .map(
+                          (word) => Chip(
+                            label: Text(word),
+                            onDeleted: () {
+                              setState(() {
+                                selectedWords.remove(word);
+                              });
+                            },
+                          ),
+                        )
+                        .toList(),
               ),
             ),
             const SizedBox(height: 20),
@@ -71,16 +73,19 @@ class _PdaDemoState extends State<PdaDemo> {
               alignment: WrapAlignment.start,
               spacing: 8.0,
               runSpacing: 8.0,
-              children: availableWords
-                  .map((word) => ActionChip(
-                        label: Text(word),
-                        onPressed: () {
-                          setState(() {
-                            selectedWords.add(word);
-                          });
-                        },
-                      ))
-                  .toList(),
+              children:
+                  availableWords
+                      .map(
+                        (word) => ActionChip(
+                          label: Text(word),
+                          onPressed: () {
+                            setState(() {
+                              selectedWords.add(word);
+                            });
+                          },
+                        ),
+                      )
+                      .toList(),
             ),
             const SizedBox(height: 20),
             Center(

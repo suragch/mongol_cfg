@@ -16,8 +16,10 @@ import 'symbol.dart';
     for (var symbol in sentence) {
       if (symbol.isNonTerminal) {
         hasNonTerminal = true;
-        final matchingRules = grammarRules.where((rule) => rule.symbol == symbol).toList();
-        final selectedRule = matchingRules[Random().nextInt(matchingRules.length)];
+        final matchingRules =
+            grammarRules.where((rule) => rule.symbol == symbol).toList();
+        final selectedRule =
+            matchingRules[Random().nextInt(matchingRules.length)];
         newSentence.addAll(selectedRule.expansion);
       } else {
         newSentence.add(symbol);

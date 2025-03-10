@@ -55,8 +55,12 @@ const grammarRules = [
   GrammarRule(CfgSymbol('Place'), [CfgSymbol('монгол', isTerminal: true)]),
 
   // Accusative Sentence
-  GrammarRule(CfgSymbol('AccusativeSentence'),
-      [CfgSymbol('NomNoun'), CfgSymbol('DemPronoun'), CfgSymbol('AccNoun'), CfgSymbol('TransVerb')]),
+  GrammarRule(CfgSymbol('AccusativeSentence'), [
+    CfgSymbol('NomNoun'),
+    CfgSymbol('DemPronoun'),
+    CfgSymbol('AccNoun'),
+    CfgSymbol('TransVerb'),
+  ]),
   GrammarRule(CfgSymbol('DemPronoun'), [CfgSymbol('энэ', isTerminal: true)]),
   GrammarRule(CfgSymbol('DemPronoun'), [CfgSymbol('тэр', isTerminal: true)]),
   GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('Pronoun'), CfgSymbol('-ыг', isTerminal: true)]),
@@ -91,5 +95,5 @@ const grammarRules = [
   GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('Place'), CfgSymbol('-руу', isTerminal: true)]),
   GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('RegularNoun'), CfgSymbol('-руу', isTerminal: true)]),
   GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('гол', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun-'), [CfgSymbol('дэлгүүр', isTerminal: true)]),
+  GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('дэлгүүр', isTerminal: true)]),
 ];
