@@ -23,13 +23,11 @@ class _CfgDemoState extends State<CfgDemo> {
               child: Text(
                 'Context-Free Grammar Demonstration',
                 style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: 16, width: double.infinity),
-            FilledButton(
-              onPressed: _generateNewSentence,
-              child: const Text('Generate Sentence'),
-            ),
+            FilledButton(onPressed: _generateNewSentence, child: const Text('Generate Sentence')),
             const SizedBox(height: 20),
             Text(generatedSentence),
             const SizedBox(height: 20),
@@ -46,5 +44,6 @@ class _CfgDemoState extends State<CfgDemo> {
       generatedSentence = sentence;
       parseTree = tree;
     });
+    print(generatedSentence);
   }
 }

@@ -15,36 +15,27 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CupertinoSegmentedControl<int>(
-                children: const {
-                  0: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text('CFG'),
-                  ),
-                  1: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text('PDA'),
-                  ),
-                },
-                onValueChanged: (int value) {
-                  setState(() {
-                    selectedIndex = value;
-                  });
-                },
-                groupValue: selectedIndex,
-              ),
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CupertinoSegmentedControl<int>(
+              children: const {
+                0: Padding(padding: EdgeInsets.symmetric(horizontal: 20), child: Text('CFG')),
+                1: Padding(padding: EdgeInsets.symmetric(horizontal: 20), child: Text('PDA')),
+              },
+              onValueChanged: (int value) {
+                setState(() {
+                  selectedIndex = value;
+                });
+              },
+              groupValue: selectedIndex,
             ),
-            Expanded(
-              child: selectedIndex == 0 ? const CfgDemo() : const PdaDemo(),
-            ),
-          ],
-        ),
+          ),
+          Expanded(child: selectedIndex == 0 ? const CfgDemo() : const PdaDemo()),
+        ],
       ),
     );
   }

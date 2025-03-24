@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mongol_cfg/logic/grammar_agglutinative.dart';
 import 'package:mongol_cfg/logic/pda_parser.dart';
 import 'package:mongol_cfg/logic/symbol.dart';
-// import '../logic/grammar.dart';
 
 class PdaDemo extends StatefulWidget {
   const PdaDemo({super.key});
@@ -36,6 +35,7 @@ class _PdaDemoState extends State<PdaDemo> {
               child: Text(
                 'Pushdown Automata Demonstration',
                 style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(height: 16),
@@ -88,12 +88,7 @@ class _PdaDemoState extends State<PdaDemo> {
                       .toList(),
             ),
             const SizedBox(height: 20),
-            Center(
-              child: FilledButton(
-                onPressed: _checkGrammar,
-                child: const Text('Check Grammar'),
-              ),
-            ),
+            Center(child: FilledButton(onPressed: _checkGrammar, child: const Text('Check Grammar'))),
             if (isValid != null) ...[
               const SizedBox(height: 20),
               Center(
@@ -126,14 +121,12 @@ class _PdaDemoState extends State<PdaDemo> {
   }
 
   void _checkGrammar() {
-    final parser = PDAParser(
-      grammarRules: grammarRules,
-      startSymbol: const CfgSymbol('S'),
-    );
+    final parser = PDAParser(grammarRules: grammarRules, startSymbol: const CfgSymbol('S'));
     final (valid, trace) = parser.parse(selectedWords);
     setState(() {
       isValid = valid;
       stackTrace = trace;
     });
+    print('$selectedWords: valid: $valid');
   }
 }
