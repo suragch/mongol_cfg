@@ -7,20 +7,20 @@ class PDAParser {
 
   PDAParser({required this.grammarRules, required this.startSymbol});
 
-  (bool isValid, String stackTrace) parse(List<String> inputTokens) {
+  (bool isValid, String? stackTrace) parse(List<String> inputTokens, {bool showTrace = false}) {
     final tokens = inputTokens.map((t) => CfgSymbol(t, isTerminal: true)).toList();
 
     // Initialize the stack with the start symbol
     List<CfgSymbol> stack = [startSymbol];
-    final stackTrace = StringBuffer();
+    final stackTrace = showTrace ? StringBuffer() : null;
 
     // Start the recursive parsing
     final isValid = _parseRecursive(stack, tokens, 0, stackTrace);
     return (isValid, stackTrace.toString());
   }
 
-  bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex, StringBuffer stackTrace) {
-    stackTrace.writeln(stack.toString());
+  bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex, StringBuffer? stackTrace) {
+    stackTrace?.writeln(stack.toString());
     if (stack.isEmpty) {
       // Successfully parsed if all input tokens are consumed
       return inputIndex == inputTokens.length;

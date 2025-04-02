@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongol_cfg/logic/grammar_agglutinative.dart';
 import 'package:mongol_cfg/logic/pda_parser.dart';
 import 'package:mongol_cfg/logic/symbol.dart';
+import 'package:mongol_cfg/logic/verification.dart';
 
 class PdaDemo extends StatefulWidget {
   const PdaDemo({super.key});
@@ -88,7 +89,13 @@ class _PdaDemoState extends State<PdaDemo> {
                       .toList(),
             ),
             const SizedBox(height: 20),
-            Center(child: FilledButton(onPressed: _checkGrammar, child: const Text('Check Grammar'))),
+            Center(
+              child: FilledButton(
+                onPressed: _checkGrammar,
+                onLongPress: _verifyEveryPermutation,
+                child: const Text('Check Grammar'),
+              ),
+            ),
             if (isValid != null) ...[
               const SizedBox(height: 20),
               Center(
@@ -120,13 +127,41 @@ class _PdaDemoState extends State<PdaDemo> {
     );
   }
 
+  final parser = PDAParser(grammarRules: grammarRules, startSymbol: const CfgSymbol('S'));
+
   void _checkGrammar() {
-    final parser = PDAParser(grammarRules: grammarRules, startSymbol: const CfgSymbol('S'));
-    final (valid, trace) = parser.parse(selectedWords);
+    final (valid, trace) = parser.parse(selectedWords, showTrace: true);
     setState(() {
       isValid = valid;
       stackTrace = trace;
     });
     print('$selectedWords: valid: $valid');
   }
+
+  void _verifyEveryPermutation() {
+    final List<String> terminals = findTerminals(grammarRules);
+    print("--- Terminals Found ---");
+    print(terminals);
+    print("Total unique terminals: ${terminals.length}");
+
+    int validCount = 0;
+    int partialCount = 0;
+    // Warning: setting maxLength to 5 will take a long time to finish
+    final count = processSequencesUpToLength(terminals, 2, (sequence) {
+      partialCount++;
+      if (partialCount % 10000 == 0) print(partialCount);
+      final (valid, _) = parser.parse(sequence, showTrace: true);
+      if (valid) {
+        // print(sequence);
+        validCount++;
+      }
+    });
+    print('Total: $count, Valid: $validCount (${(validCount / count * 100).toStringAsFixed(1)}%)');
+  }
 }
+
+// maxLength(1): Total: 30, Valid: 0 (0.0%)
+// maxLength(2): Total: 930, Valid: 60 (6.5%)
+// maxLength(3): Total: 27930, Valid: 60 (0.2%)
+// maxLength(4): Total: 837930, Valid: 3240 (0.4%)
+// maxLength(5): Total: 25137930, Valid: 3840 (0.0%)
