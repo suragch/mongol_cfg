@@ -1,4 +1,5 @@
 import 'grammar_agglutinative.dart';
+import 'pda_parser.dart';
 
 /// Finds all unique terminal symbols from the grammar rules.
 List<String> findTerminals(List<GrammarRule> rules) {
@@ -46,4 +47,25 @@ int processSequencesUpToLength(List<String> items, int maxLength, void Function(
   }
 
   return sequenceCount;
+}
+
+void verifyEveryPermutation(PDAParser parser) {
+  final List<String> terminals = findTerminals(grammarRules);
+  print("--- Terminals Found ---");
+  print(terminals);
+  print("Total unique terminals: ${terminals.length}");
+
+  int validCount = 0;
+  int partialCount = 0;
+  // Warning: setting maxLength to 5 will take a long time to finish
+  final count = processSequencesUpToLength(terminals, 2, (sequence) {
+    partialCount++;
+    if (partialCount % 10000 == 0) print(partialCount);
+    final (valid, _) = parser.parse(sequence, showTrace: true);
+    if (valid) {
+      // print(sequence);
+      validCount++;
+    }
+  });
+  print('Total: $count, Valid: $validCount (${(validCount / count * 100).toStringAsFixed(1)}%)');
 }
