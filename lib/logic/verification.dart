@@ -58,7 +58,7 @@ void verifyEveryPermutation(PDAParser parser) {
   int validCount = 0;
   int partialCount = 0;
   // Warning: setting maxLength to 5 will take a long time to finish
-  final count = processSequencesUpToLength(terminals, 2, (sequence) {
+  final count = processSequencesUpToLength(terminals, 4, (sequence) {
     partialCount++;
     if (partialCount % 10000 == 0) print(partialCount);
     final (valid, _) = parser.parse(sequence, showTrace: true);

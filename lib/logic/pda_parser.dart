@@ -28,7 +28,7 @@ class PDAParser {
 
     final top = stack.removeLast();
 
-    if (!top.isTerminal) {
+    if (top.isNonTerminal) {
       // Get rules that can expand the non-terminal
       List<GrammarRule> rules = grammarRules.where((rule) => rule.symbol == top).toList();
 
@@ -40,6 +40,8 @@ class PDAParser {
       for (var rule in rules) {
         final newStack = stack.toList();
         // Push right-hand side of the rule onto the stack in reverse order
+        // The reverse order is so that the structure embedded in the expansion order
+        // will match the terminal order. Items lower in the stack should come later.
         for (var symbol in rule.expansion.reversed) {
           newStack.add(symbol);
         }
