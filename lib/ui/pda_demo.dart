@@ -14,7 +14,7 @@ class PdaDemo extends StatefulWidget {
 class _PdaDemoState extends State<PdaDemo> {
   final List<String> selectedWords = [];
   final List<String> availableWords =
-      grammarRules
+      productionRules
           .expand((rule) => rule.expansion)
           .where((symbol) => symbol.isTerminal)
           .map((symbol) => symbol.name)
@@ -127,7 +127,7 @@ class _PdaDemoState extends State<PdaDemo> {
     );
   }
 
-  final parser = PDAParser(grammarRules: grammarRules, startSymbol: const Symbol('S'));
+  final parser = PDAParser(grammarRules: productionRules, startSymbol: const Symbol('S'));
 
   void _checkGrammar() {
     final (valid, trace) = parser.parse(selectedWords, showTrace: true);

@@ -6,27 +6,27 @@ class Rule {
   final List<Symbol> expansion;
 }
 
-const grammarRules = [
+const productionRules = [
   Rule(Symbol('S'), [Symbol('NounPhrase'), Symbol('Verb')]),
 
-  Rule(Symbol('NounPhrase'), [Symbol('NominativeCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('GenitiveCase'), Symbol('Noun')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('DativeLocativeCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('AccusativeCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('AblativeCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('InstrumentalCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('ComitativeCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('DirectiveCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('NomCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('GenCase'), Symbol('Noun')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('DatCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('AccCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('AblCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('InsCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('ComCase')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('DirCase')]),
 
-  Rule(Symbol('NominativeCase'), [Symbol('Noun')]),
-  Rule(Symbol('NominativeCase'), [Symbol('Noun'), Symbol('Noun')]),
-  Rule(Symbol('GenitiveCase'), [Symbol('Noun'), Symbol('-ын', isTerminal: true)]),
-  Rule(Symbol('DativeLocativeCase'), [Symbol('Noun'), Symbol('-д', isTerminal: true)]),
-  Rule(Symbol('AccusativeCase'), [Symbol('Noun'), Symbol('-ыг', isTerminal: true)]),
-  Rule(Symbol('AblativeCase'), [Symbol('Noun'), Symbol('-аас', isTerminal: true)]),
-  Rule(Symbol('InstrumentalCase'), [Symbol('Noun'), Symbol('-аар', isTerminal: true)]),
-  Rule(Symbol('ComitativeCase'), [Symbol('Noun'), Symbol('-тай', isTerminal: true)]),
-  Rule(Symbol('DirectiveCase'), [Symbol('Noun'), Symbol('руу', isTerminal: true)]),
+  Rule(Symbol('NomCase'), [Symbol('Noun')]),
+  Rule(Symbol('NomCase'), [Symbol('Noun'), Symbol('Noun')]),
+  Rule(Symbol('GenCase'), [Symbol('Noun'), Symbol('-ын', isTerminal: true)]),
+  Rule(Symbol('DatCase'), [Symbol('Noun'), Symbol('-д', isTerminal: true)]),
+  Rule(Symbol('AccCase'), [Symbol('Noun'), Symbol('-ыг', isTerminal: true)]),
+  Rule(Symbol('AblCase'), [Symbol('Noun'), Symbol('-аас', isTerminal: true)]),
+  Rule(Symbol('InsCase'), [Symbol('Noun'), Symbol('-аар', isTerminal: true)]),
+  Rule(Symbol('ComCase'), [Symbol('Noun'), Symbol('-тай', isTerminal: true)]),
+  Rule(Symbol('DirCase'), [Symbol('Noun'), Symbol('руу', isTerminal: true)]),
 
   Rule(Symbol('Noun'), [Symbol('тэр', isTerminal: true)]),
   Rule(Symbol('Noun'), [Symbol('би', isTerminal: true)]),

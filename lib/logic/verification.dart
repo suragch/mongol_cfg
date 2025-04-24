@@ -50,7 +50,7 @@ int processSequencesUpToLength(List<String> items, int maxLength, void Function(
 }
 
 void verifyEveryPermutation(PDAParser parser) {
-  final List<String> terminals = findTerminals(grammarRules);
+  final List<String> terminals = findTerminals(productionRules);
   print("--- Terminals Found ---");
   print(terminals);
   print("Total unique terminals: ${terminals.length}");
