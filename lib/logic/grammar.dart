@@ -1,5 +1,3 @@
-import 'dart:core' hide Symbol;
-
 import 'symbol.dart';
 
 class GrammarRule {
