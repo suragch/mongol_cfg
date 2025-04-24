@@ -5,13 +5,13 @@ import 'package:mongol_cfg/logic/grammar_agglutinative.dart';
 import 'symbol.dart';
 
 (String sentence, String parseTree) generateRandomSentence() {
-  var sentence = [const CfgSymbol('S')];
+  var sentence = [const Symbol('S')];
   var hasNonTerminal = true;
   final parseTree = StringBuffer();
 
   while (hasNonTerminal) {
     hasNonTerminal = false;
-    var newSentence = <CfgSymbol>[];
+    var newSentence = <Symbol>[];
 
     for (var symbol in sentence) {
       if (symbol.isNonTerminal) {

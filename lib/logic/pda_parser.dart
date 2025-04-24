@@ -2,16 +2,16 @@ import 'symbol.dart';
 import 'grammar_agglutinative.dart';
 
 class PDAParser {
-  final List<GrammarRule> grammarRules;
-  final CfgSymbol startSymbol;
+  final List<Rule> grammarRules;
+  final Symbol startSymbol;
 
   PDAParser({required this.grammarRules, required this.startSymbol});
 
   (bool isValid, String? stackTrace) parse(List<String> inputTokens, {bool showTrace = false}) {
-    final tokens = inputTokens.map((t) => CfgSymbol(t, isTerminal: true)).toList();
+    final tokens = inputTokens.map((t) => Symbol(t, isTerminal: true)).toList();
 
     // Initialize the stack with the start symbol
-    List<CfgSymbol> stack = [startSymbol];
+    List<Symbol> stack = [startSymbol];
     final stackTrace = showTrace ? StringBuffer() : null;
 
     // Start the recursive parsing
@@ -19,7 +19,7 @@ class PDAParser {
     return (isValid, stackTrace.toString());
   }
 
-  bool _parseRecursive(List<CfgSymbol> stack, List<CfgSymbol> inputTokens, int inputIndex, StringBuffer? stackTrace) {
+  bool _parseRecursive(List<Symbol> stack, List<Symbol> inputTokens, int inputIndex, StringBuffer? stackTrace) {
     stackTrace?.writeln(stack.toString());
     if (stack.isEmpty) {
       // Successfully parsed if all input tokens are consumed
@@ -30,7 +30,7 @@ class PDAParser {
 
     if (top.isNonTerminal) {
       // Get rules that can expand the non-terminal
-      List<GrammarRule> rules = grammarRules.where((rule) => rule.symbol == top).toList();
+      List<Rule> rules = grammarRules.where((rule) => rule.symbol == top).toList();
 
       if (rules.isEmpty) {
         return false; // No rules to expand non-terminal

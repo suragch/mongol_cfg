@@ -2,7 +2,7 @@ import 'grammar_agglutinative.dart';
 import 'pda_parser.dart';
 
 /// Finds all unique terminal symbols from the grammar rules.
-List<String> findTerminals(List<GrammarRule> rules) {
+List<String> findTerminals(List<Rule> rules) {
   final terminalNames = <String>{};
 
   for (final rule in rules) {

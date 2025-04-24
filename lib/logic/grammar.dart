@@ -4,214 +4,125 @@ import 'symbol.dart';
 
 class GrammarRule {
   const GrammarRule(this.symbol, this.expansion);
-  final CfgSymbol symbol;
-  final List<CfgSymbol> expansion;
+  final Symbol symbol;
+  final List<Symbol> expansion;
 }
 
 const grammarRules = [
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('NominativeSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('GenitiveSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('DativeLocativeSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('AccusativeSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('AblativeSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('InstrumentalSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('ComitativeSentence')]),
-  GrammarRule(CfgSymbol('S'), [CfgSymbol('DirectiveSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('NominativeSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('GenitiveSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('DativeLocativeSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('AccusativeSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('AblativeSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('InstrumentalSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('ComitativeSentence')]),
+  GrammarRule(Symbol('S'), [Symbol('DirectiveSentence')]),
 
   // Nominative Sentence
-  GrammarRule(CfgSymbol('NominativeSentence'), [
-    CfgSymbol('NounPhrase'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('NounPhrase'), [CfgSymbol('NomNoun')]),
-  GrammarRule(CfgSymbol('Verb'), [CfgSymbol('PastVerb')]),
-  GrammarRule(CfgSymbol('Verb'), [CfgSymbol('PresentVerb')]),
-  GrammarRule(CfgSymbol('Verb'), [CfgSymbol('FutureVerb')]),
-  GrammarRule(CfgSymbol('NomNoun'), [CfgSymbol('Pronoun')]),
-  GrammarRule(CfgSymbol('NomNoun'), [CfgSymbol('Name')]),
-  GrammarRule(CfgSymbol('NomNoun'), [CfgSymbol('RegularNoun')]),
-  GrammarRule(CfgSymbol('Pronoun'), [CfgSymbol('тэр', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Pronoun'), [CfgSymbol('би', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name'), [CfgSymbol('бат', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name'), [CfgSymbol('мишээл', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('аав', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('ээж', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun'), [CfgSymbol('морь', isTerminal: true)]),
-  GrammarRule(CfgSymbol('PastVerb'), [CfgSymbol('ирсэн', isTerminal: true)]),
-  GrammarRule(CfgSymbol('PastVerb'), [CfgSymbol('явсан', isTerminal: true)]),
-  GrammarRule(CfgSymbol('PresentVerb'), [
-    CfgSymbol('ирж байна', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('PresentVerb'), [
-    CfgSymbol('явж байна', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('FutureVerb'), [CfgSymbol('ирнэ', isTerminal: true)]),
-  GrammarRule(CfgSymbol('FutureVerb'), [CfgSymbol('явна', isTerminal: true)]),
+  GrammarRule(Symbol('NominativeSentence'), [Symbol('NounPhrase'), Symbol('Verb')]),
+  GrammarRule(Symbol('NounPhrase'), [Symbol('NomNoun')]),
+  GrammarRule(Symbol('Verb'), [Symbol('PastVerb')]),
+  GrammarRule(Symbol('Verb'), [Symbol('PresentVerb')]),
+  GrammarRule(Symbol('Verb'), [Symbol('FutureVerb')]),
+  GrammarRule(Symbol('NomNoun'), [Symbol('Pronoun')]),
+  GrammarRule(Symbol('NomNoun'), [Symbol('Name')]),
+  GrammarRule(Symbol('NomNoun'), [Symbol('RegularNoun')]),
+  GrammarRule(Symbol('Pronoun'), [Symbol('тэр', isTerminal: true)]),
+  GrammarRule(Symbol('Pronoun'), [Symbol('би', isTerminal: true)]),
+  GrammarRule(Symbol('Name'), [Symbol('бат', isTerminal: true)]),
+  GrammarRule(Symbol('Name'), [Symbol('мишээл', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun'), [Symbol('аав', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun'), [Symbol('ээж', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun'), [Symbol('морь', isTerminal: true)]),
+  GrammarRule(Symbol('PastVerb'), [Symbol('ирсэн', isTerminal: true)]),
+  GrammarRule(Symbol('PastVerb'), [Symbol('явсан', isTerminal: true)]),
+  GrammarRule(Symbol('PresentVerb'), [Symbol('ирж байна', isTerminal: true)]),
+  GrammarRule(Symbol('PresentVerb'), [Symbol('явж байна', isTerminal: true)]),
+  GrammarRule(Symbol('FutureVerb'), [Symbol('ирнэ', isTerminal: true)]),
+  GrammarRule(Symbol('FutureVerb'), [Symbol('явна', isTerminal: true)]),
 
   // Genitive Sentence
-  GrammarRule(CfgSymbol('GenitiveSentence'), [
-    CfgSymbol('GenNoun'),
-    CfgSymbol('NomNoun'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('GenNoun'), [CfgSymbol('Pronoun-ын')]),
-  GrammarRule(CfgSymbol('GenNoun'), [CfgSymbol('Name-ын')]),
-  GrammarRule(CfgSymbol('GenNoun'), [CfgSymbol('RegularNoun-ын')]),
-  GrammarRule(CfgSymbol('Pronoun-ын'), [CfgSymbol('түүний', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Pronoun-ын'), [CfgSymbol('миний', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name-ын'), [CfgSymbol('батын', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name-ын'), [CfgSymbol('мишээлийн', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun-ын'), [
-    CfgSymbol('аавын', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-ын'), [
-    CfgSymbol('ээжийн', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-ын'), [
-    CfgSymbol('морины', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('GenitiveSentence'), [Symbol('GenNoun'), Symbol('NomNoun'), Symbol('Verb')]),
+  GrammarRule(Symbol('GenNoun'), [Symbol('Pronoun-ын')]),
+  GrammarRule(Symbol('GenNoun'), [Symbol('Name-ын')]),
+  GrammarRule(Symbol('GenNoun'), [Symbol('RegularNoun-ын')]),
+  GrammarRule(Symbol('Pronoun-ын'), [Symbol('түүний', isTerminal: true)]),
+  GrammarRule(Symbol('Pronoun-ын'), [Symbol('миний', isTerminal: true)]),
+  GrammarRule(Symbol('Name-ын'), [Symbol('батын', isTerminal: true)]),
+  GrammarRule(Symbol('Name-ын'), [Symbol('мишээлийн', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-ын'), [Symbol('аавын', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-ын'), [Symbol('ээжийн', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-ын'), [Symbol('морины', isTerminal: true)]),
 
   // Dative Locative Sentence
-  GrammarRule(CfgSymbol('DativeLocativeSentence'), [
-    CfgSymbol('NomNoun'),
-    CfgSymbol('DatNoun'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('DatNoun'), [CfgSymbol('Place-т')]),
-  GrammarRule(CfgSymbol('DatNoun'), [CfgSymbol('RegularNoun-т')]),
-  GrammarRule(CfgSymbol('Place-т'), [
-    CfgSymbol('улаанбаатарт', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('Place-т'), [CfgSymbol('монголд', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun-т'), [
-    CfgSymbol('гэрт', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-т'), [
-    CfgSymbol('ээжид', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('DativeLocativeSentence'), [Symbol('NomNoun'), Symbol('DatNoun'), Symbol('Verb')]),
+  GrammarRule(Symbol('DatNoun'), [Symbol('Place-т')]),
+  GrammarRule(Symbol('DatNoun'), [Symbol('RegularNoun-т')]),
+  GrammarRule(Symbol('Place-т'), [Symbol('улаанбаатарт', isTerminal: true)]),
+  GrammarRule(Symbol('Place-т'), [Symbol('монголд', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-т'), [Symbol('гэрт', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-т'), [Symbol('ээжид', isTerminal: true)]),
 
   // Accusative Sentence
-  GrammarRule(CfgSymbol('AccusativeSentence'), [
-    CfgSymbol('NomNoun'),
-    CfgSymbol('DemPronoun'),
-    CfgSymbol('AccNoun'),
-    CfgSymbol('TransVerb'),
+  GrammarRule(Symbol('AccusativeSentence'), [
+    Symbol('NomNoun'),
+    Symbol('DemPronoun'),
+    Symbol('AccNoun'),
+    Symbol('TransVerb'),
   ]),
-  GrammarRule(CfgSymbol('DemPronoun'), [CfgSymbol('энэ', isTerminal: true)]),
-  GrammarRule(CfgSymbol('DemPronoun'), [CfgSymbol('тэр', isTerminal: true)]),
-  GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('Pronoun-ыг')]),
-  GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('Name-ыг')]),
-  GrammarRule(CfgSymbol('AccNoun'), [CfgSymbol('RegularNoun-ыг')]),
-  GrammarRule(CfgSymbol('Pronoun-ыг'), [
-    CfgSymbol('түүнийг', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('Pronoun-ыг'), [CfgSymbol('намайг', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name-ыг'), [CfgSymbol('батыг', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name-ыг'), [CfgSymbol('мишээлийг', isTerminal: true)]),
-  GrammarRule(CfgSymbol('RegularNoun-ыг'), [
-    CfgSymbol('мөнгийг', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-ыг'), [
-    CfgSymbol('номыг', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-ыг'), [
-    CfgSymbol('морийг', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('TransVerb'), [CfgSymbol('TransPastVerb')]),
-  GrammarRule(CfgSymbol('TransVerb'), [CfgSymbol('TransPresentVerb')]),
-  GrammarRule(CfgSymbol('TransVerb'), [CfgSymbol('TransFutureVerb')]),
-  GrammarRule(CfgSymbol('TransPastVerb'), [
-    CfgSymbol('авсан', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('TransPresentVerb'), [
-    CfgSymbol('авж байна', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('TransFutureVerb'), [
-    CfgSymbol('авна', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('DemPronoun'), [Symbol('энэ', isTerminal: true)]),
+  GrammarRule(Symbol('DemPronoun'), [Symbol('тэр', isTerminal: true)]),
+  GrammarRule(Symbol('AccNoun'), [Symbol('Pronoun-ыг')]),
+  GrammarRule(Symbol('AccNoun'), [Symbol('Name-ыг')]),
+  GrammarRule(Symbol('AccNoun'), [Symbol('RegularNoun-ыг')]),
+  GrammarRule(Symbol('Pronoun-ыг'), [Symbol('түүнийг', isTerminal: true)]),
+  GrammarRule(Symbol('Pronoun-ыг'), [Symbol('намайг', isTerminal: true)]),
+  GrammarRule(Symbol('Name-ыг'), [Symbol('батыг', isTerminal: true)]),
+  GrammarRule(Symbol('Name-ыг'), [Symbol('мишээлийг', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-ыг'), [Symbol('мөнгийг', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-ыг'), [Symbol('номыг', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-ыг'), [Symbol('морийг', isTerminal: true)]),
+  GrammarRule(Symbol('TransVerb'), [Symbol('TransPastVerb')]),
+  GrammarRule(Symbol('TransVerb'), [Symbol('TransPresentVerb')]),
+  GrammarRule(Symbol('TransVerb'), [Symbol('TransFutureVerb')]),
+  GrammarRule(Symbol('TransPastVerb'), [Symbol('авсан', isTerminal: true)]),
+  GrammarRule(Symbol('TransPresentVerb'), [Symbol('авж байна', isTerminal: true)]),
+  GrammarRule(Symbol('TransFutureVerb'), [Symbol('авна', isTerminal: true)]),
 
   // Ablative Sentence
-  GrammarRule(CfgSymbol('AblativeSentence'), [
-    CfgSymbol('NomNoun'),
-    CfgSymbol('AblNoun'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('AblNoun'), [CfgSymbol('Place-аас')]),
-  GrammarRule(CfgSymbol('AblNoun'), [CfgSymbol('RegularNoun-аас')]),
-  GrammarRule(CfgSymbol('Place-аас'), [
-    CfgSymbol('америкаас', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('Place-аас'), [
-    CfgSymbol('монголоос', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-аас'), [
-    CfgSymbol('ааваас', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-аас'), [
-    CfgSymbol('ээжээс', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-аас'), [
-    CfgSymbol('мориноос', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('AblativeSentence'), [Symbol('NomNoun'), Symbol('AblNoun'), Symbol('Verb')]),
+  GrammarRule(Symbol('AblNoun'), [Symbol('Place-аас')]),
+  GrammarRule(Symbol('AblNoun'), [Symbol('RegularNoun-аас')]),
+  GrammarRule(Symbol('Place-аас'), [Symbol('америкаас', isTerminal: true)]),
+  GrammarRule(Symbol('Place-аас'), [Symbol('монголоос', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-аас'), [Symbol('ааваас', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-аас'), [Symbol('ээжээс', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-аас'), [Symbol('мориноос', isTerminal: true)]),
 
   // Instrumental Sentence
-  GrammarRule(CfgSymbol('InstrumentalSentence'), [
-    CfgSymbol('NomNoun'),
-    CfgSymbol('InsNoun'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('InsNoun'), [CfgSymbol('RegularNoun-аар')]),
-  GrammarRule(CfgSymbol('RegularNoun-аар'), [
-    CfgSymbol('машинаар', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-аар'), [
-    CfgSymbol('мориор', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('InstrumentalSentence'), [Symbol('NomNoun'), Symbol('InsNoun'), Symbol('Verb')]),
+  GrammarRule(Symbol('InsNoun'), [Symbol('RegularNoun-аар')]),
+  GrammarRule(Symbol('RegularNoun-аар'), [Symbol('машинаар', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-аар'), [Symbol('мориор', isTerminal: true)]),
 
   // Comitative Sentence
-  GrammarRule(CfgSymbol('ComitativeSentence'), [
-    CfgSymbol('NomNoun'),
-    CfgSymbol('ComNoun'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('Pronoun-тай')]),
-  GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('Name-тай')]),
-  GrammarRule(CfgSymbol('ComNoun'), [CfgSymbol('RegularNoun-тай')]),
-  GrammarRule(CfgSymbol('Pronoun-тай'), [
-    CfgSymbol('түүнтэй', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('Pronoun-тай'), [
-    CfgSymbol('надтай', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('Name-тай'), [CfgSymbol('баттай', isTerminal: true)]),
-  GrammarRule(CfgSymbol('Name-тай'), [
-    CfgSymbol('мишээлтэй', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-тай'), [
-    CfgSymbol('аавтай', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-тай'), [
-    CfgSymbol('морьтой', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('ComitativeSentence'), [Symbol('NomNoun'), Symbol('ComNoun'), Symbol('Verb')]),
+  GrammarRule(Symbol('ComNoun'), [Symbol('Pronoun-тай')]),
+  GrammarRule(Symbol('ComNoun'), [Symbol('Name-тай')]),
+  GrammarRule(Symbol('ComNoun'), [Symbol('RegularNoun-тай')]),
+  GrammarRule(Symbol('Pronoun-тай'), [Symbol('түүнтэй', isTerminal: true)]),
+  GrammarRule(Symbol('Pronoun-тай'), [Symbol('надтай', isTerminal: true)]),
+  GrammarRule(Symbol('Name-тай'), [Symbol('баттай', isTerminal: true)]),
+  GrammarRule(Symbol('Name-тай'), [Symbol('мишээлтэй', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-тай'), [Symbol('аавтай', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-тай'), [Symbol('морьтой', isTerminal: true)]),
 
   // Directive Sentence
-  GrammarRule(CfgSymbol('DirectiveSentence'), [
-    CfgSymbol('NomNoun'),
-    CfgSymbol('DirNoun'),
-    CfgSymbol('Verb'),
-  ]),
-  GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('Place-руу')]),
-  GrammarRule(CfgSymbol('DirNoun'), [CfgSymbol('RegularNoun-руу')]),
-  GrammarRule(CfgSymbol('Place-руу'), [
-    CfgSymbol('америк руу', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('Name-руу'), [
-    CfgSymbol('монгол руу', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-руу'), [
-    CfgSymbol('гол руу', isTerminal: true),
-  ]),
-  GrammarRule(CfgSymbol('RegularNoun-руу'), [
-    CfgSymbol('дэлгүүр лүү', isTerminal: true),
-  ]),
+  GrammarRule(Symbol('DirectiveSentence'), [Symbol('NomNoun'), Symbol('DirNoun'), Symbol('Verb')]),
+  GrammarRule(Symbol('DirNoun'), [Symbol('Place-руу')]),
+  GrammarRule(Symbol('DirNoun'), [Symbol('RegularNoun-руу')]),
+  GrammarRule(Symbol('Place-руу'), [Symbol('америк руу', isTerminal: true)]),
+  GrammarRule(Symbol('Name-руу'), [Symbol('монгол руу', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-руу'), [Symbol('гол руу', isTerminal: true)]),
+  GrammarRule(Symbol('RegularNoun-руу'), [Symbol('дэлгүүр лүү', isTerminal: true)]),
 ];

@@ -127,7 +127,7 @@ class _PdaDemoState extends State<PdaDemo> {
     );
   }
 
-  final parser = PDAParser(grammarRules: grammarRules, startSymbol: const CfgSymbol('S'));
+  final parser = PDAParser(grammarRules: grammarRules, startSymbol: const Symbol('S'));
 
   void _checkGrammar() {
     final (valid, trace) = parser.parse(selectedWords, showTrace: true);
