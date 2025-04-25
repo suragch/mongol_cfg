@@ -9,24 +9,10 @@ class Rule {
 const productionRules = [
   Rule(Symbol('S'), [Symbol('NounPhrase'), Symbol('Verb')]),
 
-  Rule(Symbol('NounPhrase'), [Symbol('NomCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('GenCase'), Symbol('Noun')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('DatCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('AccCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('AblCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('InsCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('ComCase')]),
-  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('DirCase')]),
-
-  Rule(Symbol('NomCase'), [Symbol('Noun')]),
-  Rule(Symbol('NomCase'), [Symbol('Noun'), Symbol('Noun')]),
-  Rule(Symbol('GenCase'), [Symbol('Noun'), Symbol('-ын', isTerminal: true)]),
-  Rule(Symbol('DatCase'), [Symbol('Noun'), Symbol('-д', isTerminal: true)]),
-  Rule(Symbol('AccCase'), [Symbol('Noun'), Symbol('-ыг', isTerminal: true)]),
-  Rule(Symbol('AblCase'), [Symbol('Noun'), Symbol('-аас', isTerminal: true)]),
-  Rule(Symbol('InsCase'), [Symbol('Noun'), Symbol('-аар', isTerminal: true)]),
-  Rule(Symbol('ComCase'), [Symbol('Noun'), Symbol('-тай', isTerminal: true)]),
-  Rule(Symbol('DirCase'), [Symbol('Noun'), Symbol('руу', isTerminal: true)]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun')]),
+  Rule(Symbol('NounPhrase'), [Symbol('Noun'), Symbol('Noun')]),
+  Rule(Symbol('NounPhrase'), [Symbol('NounCase'), Symbol('Noun')]),
+  Rule(Symbol('NounCase'), [Symbol('Noun'), Symbol('Suffix')]),
 
   Rule(Symbol('Noun'), [Symbol('тэр', isTerminal: true)]),
   Rule(Symbol('Noun'), [Symbol('би', isTerminal: true)]),
@@ -41,6 +27,14 @@ const productionRules = [
   Rule(Symbol('Noun'), [Symbol('машин', isTerminal: true)]),
   Rule(Symbol('Noun'), [Symbol('гол', isTerminal: true)]),
   Rule(Symbol('Noun'), [Symbol('дэлгүүр', isTerminal: true)]),
+
+  Rule(Symbol('Suffix'), [Symbol('-ын', isTerminal: true)]),
+  Rule(Symbol('Suffix'), [Symbol('-д', isTerminal: true)]),
+  Rule(Symbol('Suffix'), [Symbol('-ыг', isTerminal: true)]),
+  Rule(Symbol('Suffix'), [Symbol('-аас', isTerminal: true)]),
+  Rule(Symbol('Suffix'), [Symbol('-аар', isTerminal: true)]),
+  Rule(Symbol('Suffix'), [Symbol('-тай', isTerminal: true)]),
+  Rule(Symbol('Suffix'), [Symbol('руу', isTerminal: true)]),
 
   Rule(Symbol('Verb'), [Symbol('ирсэн', isTerminal: true)]),
   Rule(Symbol('Verb'), [Symbol('явсан', isTerminal: true)]),
