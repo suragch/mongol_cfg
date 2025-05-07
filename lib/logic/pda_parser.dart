@@ -1,5 +1,5 @@
 import 'symbol.dart';
-import 'grammar_agglutinative.dart';
+import 'grammar.dart';
 
 class PDAParser {
   final List<Rule> grammarRules;

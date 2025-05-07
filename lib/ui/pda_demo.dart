@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_cfg/logic/grammar_agglutinative.dart';
+import 'package:mongol_cfg/logic/grammar.dart';
 import 'package:mongol_cfg/logic/pda_parser.dart';
 import 'package:mongol_cfg/logic/symbol.dart';
 import 'package:mongol_cfg/logic/verification.dart';
@@ -138,9 +138,3 @@ class _PdaDemoState extends State<PdaDemo> {
     print('$selectedWords: valid: $valid');
   }
 }
-
-// maxLength(1): Total: 30, Valid: 0 (0.0%)
-// maxLength(2): Total: 930, Valid: 60 (6.5%)
-// maxLength(3): Total: 27930, Valid: 60 (0.2%)
-// maxLength(4): Total: 837930, Valid: 3240 (0.4%)
-// maxLength(5): Total: 25137930, Valid: 3840 (0.0%)

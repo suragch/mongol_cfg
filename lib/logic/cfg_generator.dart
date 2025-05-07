@@ -1,7 +1,6 @@
 import 'dart:math';
 
-import 'package:mongol_cfg/logic/grammar_agglutinative.dart';
-
+import 'grammar.dart';
 import 'symbol.dart';
 
 (String sentence, String parseTree) generateRandomSentence() {

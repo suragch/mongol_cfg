@@ -1,4 +1,4 @@
-import 'grammar_agglutinative.dart';
+import 'grammar.dart';
 import 'pda_parser.dart';
 
 /// Finds all unique terminal symbols from the grammar rules.
